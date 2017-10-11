@@ -1,24 +1,23 @@
-"use strict";
+'use strict';
 /*task 1*/
 function toPrimitive(val, type) {
-    if (type === 'boolean') {
-        return !!val;
-    }
+    if (type === 'boolean') return !!val;
+    if (val instanceof Object) return null;
 
     switch (typeof val) {
-        case "object":
+        case 'object':
             return null;
-        case "undefined":
+        case 'undefined':
             return undefined;
     }
 
     switch (type) {
-        case "number":
+        case 'number':
             return +val;
-        case "string":
+        case 'string':
             return String(val);
         default:
-            return "no such type";
+            return 'no such type';
     }
 }
 
@@ -29,7 +28,7 @@ function formatNumber(number, decimalAmount) {
         return 'be more carefull';
     }
 
-    var arr = String(number).split(".");
+    var arr = String(number).split('.');
 
     if (!arr[1]) {
 
@@ -57,7 +56,7 @@ function capitalizeString(string) {
 /*task 4*/
 function replaceString(initialString, stringToReplace, replacer) {
     var arr = initialString.split(stringToReplace);
-    var result = "";
+    var result = '';
     var counter = initialString.endsWith(stringToReplace) ? 1 : 0;
 
     arr.forEach(function (element) {
@@ -73,14 +72,14 @@ function replaceString(initialString, stringToReplace, replacer) {
 
 /*task 5*/
 function isPrime(number) {
-    if (isNaN(+number) || String(number).includes(".") || (+number <= 1)) {
+    if (isNaN(+number) || String(number).includes('.') || (+number <= 1)) {
         return false;
     }
 
     var i = 2;
     for (; i < 10; i++) {
         let temp = +number / i;
-        if (!String(temp).includes(".") && +number / i !== 1) {
+        if (!String(temp).includes('.') && +number / i !== 1) {
             return false;
         }
     }
