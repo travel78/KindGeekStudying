@@ -27,28 +27,25 @@ function formatNumber(number, decimalAmount) {
     if (isNaN(+number) || isNaN(+decimalAmount) || String(decimalAmount).includes('.')) {
         return 'be more carefull';
     }
-
+    decimalAmount = +decimalAmount;
     var arr = String(number).split('.');
 
-    if (!arr[1]) {
+    if (!arr[1]) return arr[0] + '.' + '0'.repeat(decimalAmount);
 
-        return arr[0] + '.' + '0'.repeat(+decimalAmount);
+    if (arr[1].length > decimalAmount) return arr[0] + '.' + arr[1].substr(0, decimalAmount);
 
-    } else if (arr[1].length > +decimalAmount) {
+    return arr[0] + '.' + arr[1] + '0'.repeat(decimalAmount - arr[1].length);
 
-        return arr[0] + '.' + arr[1].substr(0, +decimalAmount);
-
-    } else {
-
-        return arr[0] + '.' + arr[1] + '0'.repeat(+decimalAmount - arr[1].length);
-    }
 }
 
 /*task 3*/
+// I took into account that before words can't be any symbols except gap
+// So my solution is good enough for correct sentence, but I added extra code to correct it
 function capitalizeString(string) {
 
-    return string.replace(/^[a-zа-я]| [a-zа-я]/g, function (match) {
-        return match.toUpperCase();
+    return string.replace(/^[a-zа-я]|\s[a-zа-я]|[.,!?;:][a-zа-я]/g, function (match) {
+        if (match.startsWith(' ') || match.length === 1) return match.toUpperCase();
+        return match[0].concat(' ', match[1].toUpperCase());
     });
 
 }

@@ -77,7 +77,7 @@ describe('isPrime', function () {
 describe('capitalizeString', function () {
 
     it('every word', function () {
-        assert.equal(capitalizeString('simple text for testing method'), 'Simple Text For Testing Method');
+        assert.equal(capitalizeString('simple,text for testing method'), 'Simple, Text For Testing Method');
     });
 });
 
