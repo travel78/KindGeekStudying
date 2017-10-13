@@ -89,3 +89,19 @@ describe('arrayToNumber', function () {
     });
 
 });
+
+describe('arrayToNumber2', function () {
+
+    it('another array', function () {
+        assert.equal(arrayToNumber2([5, 3, 7, 15]), -14);
+    });
+
+    it('one array', function () {
+        assert.equal(arrayToNumber2([1, 8, 8, 3]), -53);
+    });
+
+    it('incorrect data array', function () {
+        assert.equal(arrayToNumber2([5, 'jj', 7, 15]), 'Whatever you wish');
+    });
+
+});

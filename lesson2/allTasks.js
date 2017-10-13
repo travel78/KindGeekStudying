@@ -88,10 +88,35 @@ function arrayToNumber(arr) {
         return 'Whatever you wish';
     }
 
-   return arr.reduce(function (preVal, nextVal) {
+    return arr.reduce(function (preVal, nextVal) {
         if (Math.abs(preVal) === Math.abs(nextVal))return preVal * nextVal;
         if (preVal < nextVal)return preVal - nextVal;
         if (preVal > nextVal)return preVal + nextVal;
     });
 
 }
+
+/* bonus task version 2 */
+
+function arrayToNumber2(arr) {
+    if (!Array.isArray(arr)) return 0;
+
+    function isNumber(val) {
+        if (+val)return true;
+        return false;
+    }
+
+    if (!arr.every(isNumber)) {
+        return 'Whatever you wish';
+    }
+    let result = arr[0];
+    arr.reduce(function (preVal, nextVal) {
+        if (preVal === nextVal) result *= nextVal;
+        if (preVal < nextVal) result -= nextVal;
+        if (preVal > nextVal) result += nextVal;
+        console.log(result);
+        return nextVal;
+    });
+    return result;
+}
+
