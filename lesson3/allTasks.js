@@ -5,7 +5,7 @@
 
 function manipulateObject(obj, func) {
 
-    if(!(obj instanceof Object) || typeof func !== "function"){
+    if (!(obj instanceof Object) || typeof func !== "function") {
         return null;
     }
     return func(obj);
@@ -28,10 +28,8 @@ function getFactorial(number) {
 /* task3 */
 
 function bind(context, func) {
-    let obj = {f: func};
-    obj.__proto__ = context;
     return function () {
-        return obj.f();
+        return func.apply(context, arguments);
     };
 }
 

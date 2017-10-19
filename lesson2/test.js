@@ -16,9 +16,23 @@ describe('isTrueObject', function () {
     it('testing with primitive', function () {
         assert.equal(isTrueObject('string'), false);
     });
+
+    it('testing with null', function () {
+        assert.equal(isTrueObject(null), false);
+    });
+
+    it('testing with function', function () {
+        assert.equal(isTrueObject(function () {
+
+        }), false);
+    });
 });
 
 describe('reverseArray', function () {
+
+    it('with null', function () {
+        assert.equal(reverseArray(null), undefined);
+    });
 
     it('array of numbers', function () {
         assert.deepEqual(reverseArray([1, 2, 3, 4, 5, 6, 7, 8, 9]), [9, 8, 7, 6, 5, 4, 3, 2, 1]);
@@ -35,11 +49,11 @@ describe('arrayToObject', function () {
 describe('customArrMap', function () {
 
     it('whith bad array', function () {
-        assert.deepEqual(customArrMap(6), []);
+        assert.deepEqual(customArrMap(6), undefined);
     });
 
     it('whith bad func', function () {
-        assert.deepEqual(customArrMap([5, 'ff', 45], "df"), [5, 'ff', 45]);
+        assert.deepEqual(customArrMap([5, 'ff', 45], "df"), undefined);
     });
 
     it('whith correct data', function () {
@@ -85,7 +99,7 @@ describe('arrayToNumber', function () {
     });
 
     it('incorrect data array', function () {
-        assert.equal(arrayToNumber([5, 'jj', 7, 15]), 'Whatever you wish');
+        assert.equal(arrayToNumber([5, 'jj', 7, 15]), undefined);
     });
 
 });
@@ -97,11 +111,11 @@ describe('arrayToNumber2', function () {
     });
 
     it('one array', function () {
-        assert.equal(arrayToNumber2([1, 8, 8, 3]), -53);
+        assert.equal(arrayToNumber2([1, 8, 8, 3, 0]), -53);
     });
 
     it('incorrect data array', function () {
-        assert.equal(arrayToNumber2([5, 'jj', 7, 15]), 'Whatever you wish');
+        assert.equal(arrayToNumber2([5, 'jj', 7, 15]), undefined);
     });
 
 });
