@@ -1,0 +1,25 @@
+img{
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  width: 100%;
+  clear: both;
+  overflow: hidden;
+}
+.item {
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
+  padding: 4px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: floralwhite;
+}
+.item div{
+  padding: 3px;
+
+}
+
+span{
+  font-size: 30px;
+  cursor: pointer;
+}

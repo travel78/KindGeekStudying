@@ -1,0 +1,16 @@
+<div class="item">
+  <a [href]="res.url" target="_blank">
+    <img [@imgAnimate]="state" [src]="res.imgPath" [alt]="res.name">
+  </a>
+  <div></div>
+  <div class="">
+    <h3>{{res.title}}</h3>
+    <p>{{res.description}}</p>
+    <div class="btn-group">
+      <button [routerLink]="index+'/edit'" type="button" class="btn btn-primary">Edit</button>
+      <button (click)="onDelete()" type="button" class="btn btn-danger">Delete</button>
+    </div>
+    <span (click)="onLike()" *ngIf="!res.like" class="glyphicon glyphicon-heart-empty pull-right"></span>
+    <span (click)="onLike()" *ngIf="res.like" class="glyphicon glyphicon-heart pull-right" style="color: red"></span>
+  </div>
+</div>

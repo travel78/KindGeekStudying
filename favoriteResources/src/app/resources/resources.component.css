@@ -1,0 +1,26 @@
+img{
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  width: 100%;
+}
+
+.masonry {
+  column-count: 3;
+  column-gap: 1em;
+}
+
+/*.item {*/
+  /*display: inline-block;*/
+  /*margin: 0 0 1em;*/
+  /*width: 100%;*/
+  /*padding: 4px;*/
+  /*border: 1px solid #ddd;*/
+  /*border-radius: 4px;*/
+/*}*/
+/*.item div{*/
+  /*padding: 3px;*/
+  /*background: floralwhite;*/
+/*}*/
+/*a{*/
+  /*color: crimson;*/
+/*}*/

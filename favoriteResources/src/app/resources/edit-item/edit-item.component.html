@@ -1,0 +1,32 @@
+<div class="col-sm-6 col-sm-offset-3">
+  <form (ngSubmit)="onEditItem()" #f="ngForm" >
+    <div class="row">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" class="form-control" name="title" [ngModel]="resource.title" required >
+      </div>
+    </div>
+    <div class="row">
+      <div class=" form-group">
+        <label for="url">Url</label>
+        <input type="text" id="url" class="form-control" name="url" [ngModel]="resource.url" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class=" form-group">
+        <label for="imgPath">Path to img</label>
+        <input type="text" id="imgPath" class="form-control" name="imgPath" [ngModel]="resource.imgPath" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class=" form-group">
+        <label for="description">Description</label>
+        <textarea type="text" id="description" class="form-control" name="description" [ngModel]="resource.description" required rows="6"></textarea>
+      </div>
+    </div>
+    <div class="row">
+        <button class="btn btn-success" type="submit" [disabled]="!f.valid">Edit</button>
+        <button class="btn btn-danger" type="button" [disabled]="!f.valid" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>
