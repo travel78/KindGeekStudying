@@ -6,7 +6,7 @@
 /out-tsc
 
 # dependencies
-/angularHomework1/node_modules
+*/node_modules
 
 # IDEs and editors
 /.idea
