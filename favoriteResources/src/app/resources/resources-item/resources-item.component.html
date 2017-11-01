@@ -6,8 +6,14 @@
   <div class="">
     <h3>{{res.title}}</h3>
     <p>{{res.description}}</p>
+    <p class="text-danger" *ngIf="showMsg">{{msgToShow}}</p>
     <div class="btn-group">
-      <button [routerLink]="index+'/edit'" type="button" class="btn btn-primary">Edit</button>
+      <button [routerLink]="index+'/edit'"
+              (click)="onEdit()"
+              type="button"
+              class="btn btn-primary">
+        Edit
+      </button>
       <button (click)="onDelete()" type="button" class="btn btn-danger">Delete</button>
     </div>
     <span (click)="onLike()" *ngIf="!res.like" class="glyphicon glyphicon-heart-empty pull-right"></span>

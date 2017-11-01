@@ -35,7 +35,7 @@ import { ResourceService } from '../../common/resource.service';
           style({ transform: 'scale(1.1,1.1) translate(-10px,-10px) rotate(-10deg)', offset: 0.20 }),
           style({ transform: 'scale(1.1,1.1) translate(-10px,-10px) rotate(10deg)', offset: 0.25 }),
           style({ transform: 'scale(1.1,1.1) translate(-10px,-10px) rotate(-10deg)', offset: 0.30 }),
-          style({ transform: 'scale(1.1,1.1) translate(-10px,-10px) rotate(0deg)', offset: 0.35 }),
+          style({ transform: 'scale(1.1,1.1) translate(-10px,-10px) rotate(0deg)', offset: 0.35 })
 
         ]))
       )
@@ -50,6 +50,8 @@ export class ResourcesItemComponent {
   @Input()
   public index: number;
   public state = 'normal';
+  public msgToShow = 'You cannot edit resource which you do not like!!!';
+  public showMsg = false;
   private timer;
 
   constructor(private resourceService: ResourceService) {
@@ -72,6 +74,13 @@ export class ResourcesItemComponent {
     this.state = 'normal';
     if (this.timer) {
       clearTimeout(this.timer);
+    }
+  }
+
+  public onEdit() {
+    if (!this.resourceService.getOneByIndex(this.index).like) {
+      this.showMsg = true;
+      setTimeout(() => this.showMsg = false, 4000);
     }
   }
 

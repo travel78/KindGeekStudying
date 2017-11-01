@@ -13,6 +13,9 @@ import { ResourceService } from './common/resource.service';
 import { ResourcesItemComponent } from './resources/resources-item/resources-item.component';
 import { EditItemComponent } from './resources/edit-item/edit-item.component';
 import { RestService } from './common/rest.service';
+import { EditPageCanActivateService } from './common/edit-page-can-activate.service';
+import { EditPageCanDeactivateService } from './common/edit-page-can-deactivate.service';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { RestService } from './common/rest.service';
   ],
   providers: [
     ResourceService,
-    RestService
+    RestService,
+    EditPageCanActivateService,
+    EditPageCanDeactivateService
   ],
   bootstrap: [AppComponent]
 })
