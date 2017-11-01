@@ -1,9 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute, Params, Router} from "@angular/router";
-import {NgForm} from "@angular/forms";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
-import {ResourceService} from "../../common/resource.service";
-import {Resource} from "../../common/resource.module";
+import { ResourceService } from '../../common/resource.service';
+import { Resource } from '../../common/resource.module';
 
 @Component({
   selector: 'app-edit-item',
@@ -11,9 +11,10 @@ import {Resource} from "../../common/resource.module";
   styleUrls: ['./edit-item.component.css']
 })
 export class EditItemComponent implements OnInit {
-  @ViewChild('f') form: NgForm;
-  index: number;
-  resource: Resource;
+  @ViewChild('f')
+  private form: NgForm;
+  private index: number;
+  public resource: Resource;
 
   constructor(private route: ActivatedRoute, private resourceService: ResourceService, private router: Router) {
   }
@@ -27,14 +28,20 @@ export class EditItemComponent implements OnInit {
     );
   }
 
-  onEditItem() {
+  public onEditItem() {
     const value = this.form.value;
-    const newRes = new Resource(value.title, value.imgPath, value.description, value.url);
+    const newRes: Resource = {
+      title: value.title,
+      imgPath: value.imgPath,
+      description: value.description,
+      url: value.url,
+      like: false
+    };
     this.resourceService.updateResource(this.index, newRes);
     this.router.navigate(['/resources']);
   }
 
-  onCancel() {
+  public onCancel() {
     this.router.navigate(['/resources']);
   }
 }
