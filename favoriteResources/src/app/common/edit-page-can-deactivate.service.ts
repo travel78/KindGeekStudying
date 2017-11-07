@@ -13,7 +13,6 @@ export class EditPageCanDeactivateService implements CanDeactivate<CanComponentD
                 nextState?: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     return component.canDeactivate();
   }
-
 }
 
 

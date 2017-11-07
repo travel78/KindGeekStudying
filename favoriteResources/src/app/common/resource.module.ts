@@ -3,5 +3,5 @@ export interface Resource {
   imgPath: string;
   description: string;
   url: string;
-  like: boolean ;
+  like: boolean;
 }

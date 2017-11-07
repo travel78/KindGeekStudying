@@ -6,7 +6,7 @@
   <div class="">
     <h3>{{res.title}}</h3>
     <p>{{res.description}}</p>
-    <p class="text-danger" *ngIf="showMsg">{{msgToShow}}</p>
+    <p class="text-danger" *ngIf="showMsg">You cannot edit resource which you do not like!!!</p>
     <div class="btn-group">
       <button [routerLink]="index+'/edit'"
               (click)="onEdit()"

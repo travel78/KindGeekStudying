@@ -10,12 +10,10 @@ import { ResourceService } from '../../common/resource.service';
   templateUrl: './resources-item.component.html',
   styleUrls: ['./resources-item.component.css'],
   animations: [
-
     trigger('imgAnimate', [
       state('normal', style({
         transform: 'scale(1,1) translate(0px,0px) ',
         boxShadow: '0px 0px '
-
       })),
       state('bigSize', style({
         transform: 'scale(1.1,1.1) translate(-10px,-10px) ',
@@ -36,11 +34,8 @@ import { ResourceService } from '../../common/resource.service';
           style({ transform: 'scale(1.1,1.1) translate(-10px,-10px) rotate(10deg)', offset: 0.25 }),
           style({ transform: 'scale(1.1,1.1) translate(-10px,-10px) rotate(-10deg)', offset: 0.30 }),
           style({ transform: 'scale(1.1,1.1) translate(-10px,-10px) rotate(0deg)', offset: 0.35 })
-
         ]))
       )
-
-
     ])
   ]
 })
@@ -50,7 +45,6 @@ export class ResourcesItemComponent {
   @Input()
   public index: number;
   public state = 'normal';
-  public msgToShow = 'You cannot edit resource which you do not like!!!';
   public showMsg = false;
   private timer;
 
@@ -96,5 +90,4 @@ export class ResourcesItemComponent {
   private startTimer() {
     this.timer = setTimeout(() => this.state = 'move', 5000);
   }
-
 }

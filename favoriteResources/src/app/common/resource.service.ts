@@ -100,7 +100,7 @@ export class ResourceService {
 
   public createResource(title: string, url: string) {
     this.restServise.getInfoFromUrl(url).subscribe(
-      response => {
+      (response) => {
         const newResource: Resource = {
           title: title,
           imgPath: response.json().image,
@@ -109,9 +109,8 @@ export class ResourceService {
           like: false
         };
         this.addResource(newResource);
-        setTimeout(() => this.router.navigate(['/resources']), 500);
       },
-      error => {
+      (error) => {
         console.log('something going wrong in getInfoFromUrl -' + error);
       }
     );
