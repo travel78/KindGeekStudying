@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { ActivatedRoute, Params } from '@angular/router';
 import { HttpService } from '../../common/http.service';
 
@@ -11,7 +10,7 @@ import { HttpService } from '../../common/http.service';
 export class CommentComponent implements OnInit {
   public comments: { postId: number, id: number, name: string, email: string, body: string }[];
 
-  constructor(private route: ActivatedRoute, private httpService: HttpService, private location: Location) {
+  constructor(private route: ActivatedRoute, private httpService: HttpService) {
   }
 
   ngOnInit() {
@@ -25,9 +24,5 @@ export class CommentComponent implements OnInit {
         );
       }
     );
-  }
-
-  onGoBack() {
-    this.location.back();
   }
 }

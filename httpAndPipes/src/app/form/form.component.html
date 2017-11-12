@@ -1,0 +1,65 @@
+<div class="col-xs-6 col col-xs-offset-3">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <!--form group main info -->
+    <div formGroupName="mainInfo">
+      <!--full name-->
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" class="form-control" formControlName="fullName">
+        <span *ngIf="!myForm.get('mainInfo.fullName').valid && myForm.get('mainInfo.fullName').touched"
+              class="help-block ">
+              <span class="text-danger" *ngIf="myForm.get('mainInfo.fullName').errors['nameIsForbidden']">Try another name this is forbitten!</span>
+              <span class="text-danger" *ngIf="myForm.get('mainInfo.fullName').errors['required']">This field is required!</span>
+      </span>
+      </div>
+      <!--age-->
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" id="age" class="form-control" formControlName="age">
+        <span *ngIf="!myForm.get('mainInfo.age').valid && myForm.get('mainInfo.age').touched" class="help-block ">
+              <span class="text-danger"
+                    *ngIf="myForm.get('mainInfo.age').errors['min']">Age cannot be less then 1</span>
+              <span class="text-danger"
+                    *ngIf="myForm.get('mainInfo.age').errors['required']">This field is required!</span>
+      </span>
+      </div>
+    </div>
+    <!--mother country-->
+    <div class="form-group">
+      <label for="country">Country</label>
+      <input type="text" id="country" class="form-control" formControlName="country">
+      <span *ngIf="!myForm.get('country').valid && myForm.get('country').touched" class="help-block ">
+              <span class="text-danger" *ngIf="myForm.get('country').errors['pattern']">Enter correct name of your country</span>
+              <span class="text-danger" *ngIf="myForm.get('country').errors['required']">This field is required!</span>
+      </span>
+
+    </div>
+    <!--gender-->
+    <div class="radio" *ngFor="let gender of genders">
+      <label>
+        <input type="radio" formControlName="gender" [value]="gender">{{gender}}
+      </label>
+    </div>
+    <!--favorite places you were-->
+    <div formArrayName="favoritePlaces">
+      <h4>Your favorite places</h4>
+      <div *ngFor="let place of myForm.get('favoritePlaces').controls; let i = index">
+        <div class="input-group">
+          <input type="text" class="form-control" [formControlName]="i">
+          <span class="input-group-btn"><button class="btn btn-danger" type="button"
+                                                (click)="onDeletePlace(i)">X</button></span>
+        </div>
+        <span
+          *ngIf="!myForm.get('favoritePlaces').controls[i].valid && myForm.get('favoritePlaces').controls[i].touched"
+          class="help-block ">
+              <span class="text-danger" *ngIf="myForm.get('favoritePlaces').controls[i].errors['required']">This field cannot be empty!</span>
+      </span>
+      </div>
+      <button class="btn btn-success" type="button" (click)="onAddFavouritePlace()">+</button>
+    </div>
+    <!--submit-->
+    <br>
+    <button type="submit" class="btn btn-primary">Store</button>
+  </form>
+
+</div>

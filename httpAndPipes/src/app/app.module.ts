@@ -12,6 +12,8 @@ import { HttpService } from './common/http.service';
 import { CommentComponent } from './posts/comment/comment.component';
 import { ShortenerPipe } from './common/shortener.pipe';
 import { SortPostsPipe } from './common/sort-posts.pipe';
+import { FormComponent } from './form/form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import { SortPostsPipe } from './common/sort-posts.pipe';
     PostsComponent,
     CommentComponent,
     ShortenerPipe,
-    SortPostsPipe
+    SortPostsPipe,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    AppRouringModule
+    AppRouringModule,
+    ReactiveFormsModule
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]
